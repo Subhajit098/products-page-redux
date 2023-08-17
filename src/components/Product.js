@@ -24,7 +24,7 @@ export default function Product() {
         dispatch(add(product));
     }
 
-    const card=products.map(product=> 
+    const cards=products.map(product=> 
         (
         <div className='col-md-3'>
         <Card style={{ width: '18rem' }} key={product.id} className='h-100'>
@@ -48,7 +48,7 @@ export default function Product() {
     <>
    <h3>Product</h3>
    <div className='row'>
-   {card}
+   {cards}
    </div>
     </>
   )
