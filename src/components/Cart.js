@@ -26,7 +26,7 @@ const remFromCart=(id)=>{
   </Card.Body>
   </div>
   <Card.Footer>
-  <Button variant="primary" onClick={()=>remFromCart(product.id)}>Remove from cart</Button>
+  <Button variant="danger" onClick={()=>remFromCart(product.id)}>Remove from cart</Button>
   </Card.Footer>
 </Card>
 </div>
