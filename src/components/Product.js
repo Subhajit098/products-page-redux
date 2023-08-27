@@ -2,21 +2,22 @@ import React from 'react'
 import { useState,useEffect } from 'react'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 // for dispatching the action from redux store
 import { add } from '../store/CartSlice';
+import { getProducts } from '../store/ProductSlice';
 
 export default function Product() {
     const dispatch=useDispatch();
-    const [products,setProducts]=useState([]);
-    const URL="https://fakestoreapi.com/products"
+    const {data:products}=useSelector(state=>state.products)
     useEffect(()=>{
-        const getProducts=async()=>{
-            const response=await fetch(URL);
-            const data=await response.json();
-            setProducts(data);
-        }
-        getProducts();
+        // const getProducts=async()=>{
+        //     const response=await fetch(URL);
+        //     const data=await response.json();
+        //     setProducts(data);
+        // }
+        // getProducts();
+        dispatch(getProducts())
     },[])
 
     const addToCart=(product)=>{
